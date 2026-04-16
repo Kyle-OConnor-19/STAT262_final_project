@@ -1,0 +1,88 @@
+# Data Documentation
+
+The dataset can be found here: [Kaggle College Basketball Dataset](https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset).
+
+[**First 10 Rows of CBB Dataset:**]{.underline}
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| label: tbl-cbb
+#| tbl-cap: "College Basketball Defensive Data for NCAA Basketball Seasons from 2013-2025"
+#| results: asis
+
+cbb <- read.csv("cbb.csv")
+
+writeLines("\\footnotesize")
+knitr::kable(head(cbb[c(1:4,6:7,9,22:24)], 10))
+writeLines("\\normalsize")
+
+```
+
+[**Variable List:**]{.underline}
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| label: tbl-var
+#| tbl-cap: "Dataset Variable Names and Descriptions"
+#| results: asis
+
+cbb.variables <- data.frame(Variable=c("TEAM", "CONF", "W", "ADJDE", "BARTHAG", 
+                                       "POSTSEASON", "SEED", "YEAR"),
+                        Description=c("NCAA Division I School Name",
+                                      "Athletic Conference", 
+                                      "Games Won", 
+                                      "Adjusted Defensive Efficiency (Pts Allowed/100 Poss.)",
+                                      "Power Rating (Win % vs avg DI team)",
+                                      "Tournament Exit Round (e.g., S16, F4, Champion)",
+                                      "Tournament Seed", "Season Year"))
+
+writeLines("\\footnotesize")
+knitr::kable(cbb.variables)
+writeLines("\\normalsize")
+
+```
+
+------------------------------------------------------------------------
+
+**Population of Interest**: All Division I College Basketball Schools that played Division I Basketball between 2013-2025. As seen in @tbl-cbb
+
+**Variable of Interest**:
+
+*cbb\$ADJD* → Adjusted Defensive Rating. According to the original data source, this variable is "\[an\] estimate of the defensive efficiency (points allowed per 100 possessions) a team would have against the average Division I offense" (Sundberg, 2026).
+
+------------------------------------------------------------------------
+
+**Research Question**: What is the maximum defensive rating needed to be a true national championship contender in March Madness?
+
+**Reasoning**: The maximum value would indicate the level of defense needed for a college basketball team to have realistic expectations of winning the entire tournament, because the higher the defensive rating, the worse a team is defensively. It would be helpful for coaches and players to know what this threshold is to manage expectations and to provide a framework of where they need to get to defensively in order to advance further in the tournament.
+
+**Hypothesized Distribution**: We believe that this scenario would fit an exponential distribution, because defensive rating is a non-negative, continuous variable. However, it would be a shifted exponential because an extremely low season-long defensive rating is near impossible for teams today. We also believe that a maximum is appropriate because most champions are going to have a lower defensive rating, as it shows that the team is less likely to give up points on opposing possessions. A maximum value in this case would represent the highest defensive rating a team can have before they are no longer considered a national championship contender.
+
+**CDF and pdf**:
+
+\$\$
+
+F_X(x\|\beta) =
+
+\begin{cases} 
+      1-e^{-\frac{x-L}{\beta}} & x \geq L \\
+      0 & x<L\\
+\end{cases}
+
+$$
+
+$$
+
+max(X_1,...,X_n)=T(X_1,...,X_n)\stackrel{ind}{=}P(X_1\le t)P(X_2\le t)...P(X_n\le t)
+
+\$\$
+
+[pdf:]{.underline}
+
+\$\$
+
+f_X(x\|\beta)=\frac{1}{\beta}e\^{-\frac{x-L}{\beta}}, x\>0
+
+\$\$

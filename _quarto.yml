@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: "STAT 262 Final Project: March Madness Defensive Ratings"
+  author: 
+    - "Nathan Swenson"
+    - "Ty Hansen"
+    - "Kyle O'Connor"
+  chapters:
+    - index.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+toc-title: "Table of Contents" 
