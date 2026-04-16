@@ -62,27 +62,20 @@ writeLines("\\normalsize")
 
 **CDF and pdf**:
 
-\$\$
-
-F_X(x\|\beta) =
-
+$$
+F_X(x|\beta) =
 \begin{cases} 
       1-e^{-\frac{x-L}{\beta}} & x \geq L \\
       0 & x<L\\
 \end{cases}
-
 $$
-
 $$
-
 max(X_1,...,X_n)=T(X_1,...,X_n)\stackrel{ind}{=}P(X_1\le t)P(X_2\le t)...P(X_n\le t)
+$$
+$$
+X_i \sim exp(\beta) \rightarrow {\displaystyle \prod_{i=1}^{n} \frac{1}{\beta}e^{-\frac{x_i}{\beta}}, x>0}
+$$
 
-\$\$
-
-[pdf:]{.underline}
-
-\$\$
-
-f_X(x\|\beta)=\frac{1}{\beta}e\^{-\frac{x-L}{\beta}}, x\>0
-
-\$\$
+$$
+f_X(x|\beta)=\frac{1}{\beta}e^{-\frac{x-L}{\beta}}, x>0
+$$
