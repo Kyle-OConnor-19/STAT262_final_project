@@ -62,20 +62,51 @@ writeLines("\\normalsize")
 
 **CDF and pdf**:
 
+--------------------------------------------------------------------------------
+
 $$
-F_X(x|\beta) =
+Generic \ Beta \rightarrow F_X(x|\beta) =
 \begin{cases} 
       1-e^{-\frac{x-L}{\beta}} & x \geq L \\
       0 & x<L\\
 \end{cases}
 $$
-$$
-max(X_1,...,X_n)=T(X_1,...,X_n)\stackrel{ind}{=}P(X_1\le t)P(X_2\le t)...P(X_n\le t)
-$$
-$$
-X_i \sim exp(\beta) \rightarrow {\displaystyle \prod_{i=1}^{n} \frac{1}{\beta}e^{-\frac{x_i}{\beta}}, x>0}
-$$
+
+--------------------------------------------------------------------------------
 
 $$
-f_X(x|\beta)=\frac{1}{\beta}e^{-\frac{x-L}{\beta}}, x>0
+max(X_1,...,X_n)=T(X_1,...,X_n)\stackrel{ind}{=}P(X_1\le t)P(X_2\le t)...P(X_n\le t)=[F_X(t)]^n
 $$
+
+--------------------------------------------------------------------------------
+
+$$
+F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x>0
+$$
+
+--------------------------------------------------------------------------------
+
+$$
+f_{X_i}(x|\beta)=\frac{d}{dx}F_X(x|\beta)=\frac{n}{\beta}e^{-\frac{x-L}{\beta}}[1-e^{-\frac{x-L}{\beta}}]^{n-1}, \ \ x>0
+$$
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| label: fig-dist
+#| fig-cap: "Theoretical Distirbution of the pdf of a Shifted Exponential based on a Random Sample of Data"
+
+n <- 4249
+L <- 84.3
+β <- 103.6274
+  
+curve((n/β)*exp(-(x-L)/β)*(1-exp(-(x-L)/β))^(n-1),
+      from=84, to=1500, 
+      panel.first=grid(),
+      n=1000, 
+      col="maroon", 
+      lwd=3,
+      main="pdf of the Theoretical Distirbution for Adjusted Defensive Rating",
+      xlab="x", ylab="f(x)",)
+
+```
