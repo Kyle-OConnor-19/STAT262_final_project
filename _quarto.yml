@@ -9,6 +9,7 @@ book:
     - "Kyle O'Connor"
   chapters:
     - index.qmd
+    - intro.qmd
     - simulation.qmd
 
 bibliography: references.bib
