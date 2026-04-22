@@ -66,10 +66,12 @@ curve((n/β)*exp(-(x-L)/β)*(1-exp(-(x-L)/β))^(n-1),
       col="maroon", 
       lwd=3,
       main="pdf of the Theoretical Distirbution for Adjusted Defensive Rating for Contenders",
-      xlab="x", ylab="f(x)")
+      xlab="Adjusted Defensive Rating", ylab="f(x)")
 abline(v=(L+β*log(n)), 
        col="black", 
        lwd=2, 
        lty="dashed")
+
+#Note: v=117.1068
 
 ```
