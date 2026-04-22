@@ -1,15 +1,14 @@
 # Introduction
 
-There's a common motto in the realm of collegiate and professional basketball: "Defense wins championships." This montra has become a truism a, and every basketball fan would agree with this statement. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level. The goal of this study is to estimate the maximum possible defensive rating a collegiate team can have while still being considered a "title contender".
+There's a common motto in the realm of collegiate and professional basketball: "Defense wins championships." This montra has become a truism a, and every basketball fan would agree with this statement. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level. The goal of this study is to estimate the maximum possible defensive rating a collegiate team can have while still being considered a "title contender". For this study, a "title contender" is any team that made at least the final four for their respective year. To do this, 4,249 NCAA basketball teams were sampled from 2013-2025, where their identifying information, records, tournament placements, and adjusted defensive ratings were collected. This sample came from a population of all Division I College Basketball Schools that played Division I Basketball between 2013-2025, as seen in @tbl-cbb.
 
+## Variable of Interest
 
-**Population of Interest**: All Division I College Basketball Schools that played Division I Basketball between 2013-2025. As seen in @tbl-cbb
-
-**Variable of Interest**:
-
-*cbb\$ADJD* → Adjusted Defensive Rating. According to the original data source, this variable is "\[an\] estimate of the defensive efficiency (points allowed per 100 possessions) a team would have against the average Division I offense" (Sundberg, 2026).
+*cbb\$ADJD* → Adjusted Defensive Rating. According to the original data source, this variable is "\[an\] estimate of the defensive efficiency (points allowed per 100 possessions) a team would have against the average Division I offense" (Sundberg, 2026). A higher score indicates a worse overall defense, while a lower score indicates a better defense. While a super ADR is theoretically possible, it has probability 0. The average ADR for the sample was found to be 103.6, with a minimum sample value of 84.0 and a maximum sample value of 125.3.
 
 ------------------------------------------------------------------------
+
+## Research Question and Rationale
 
 **Research Question**: What is the maximum defensive rating needed to be a true national championship contender in March Madness?
 
@@ -53,16 +52,24 @@ $$
 #| label: fig-dist
 #| fig-cap: "Theoretical Distirbution of the pdf of a Shifted Exponential based on a Random Sample of Data"
 
-n <- 4249
-L <- 84
-β <- mean(cbb$ADJDE)-min(cbb$ADJDE)
+cbb <- read.csv("cbb.csv")
+contenders <- subset(cbb, POSTSEASON %in% c("2ND", "F4", "Champions"))
+nrow(contenders)
+
+n <- nrow(contenders)
+L <- min(contenders$ADJDE)
+β <- mean(contenders$ADJDE)-min(contenders$ADJDE)
   
 curve((n/β)*exp(-(x-L)/β)*(1-exp(-(x-L)/β))^(n-1),
-      from=84, to=400, 
+      from=84, to=200, 
       panel.first=grid(),
       col="maroon", 
       lwd=3,
-      main="pdf of the Theoretical Distirbution for Adjusted Defensive Rating",
+      main="pdf of the Theoretical Distirbution for Adjusted Defensive Rating for Contenders",
       xlab="x", ylab="f(x)")
+abline(v=(L+β*log(n)), 
+       col="black", 
+       lwd=2, 
+       lty="dashed")
 
 ```

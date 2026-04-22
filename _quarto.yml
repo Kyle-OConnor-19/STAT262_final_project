@@ -11,7 +11,9 @@ book:
     - index.qmd
     - intro.qmd
     - simulation.qmd
-
+  appendices:
+  - derivations.qmd
+  
 bibliography: references.bib
 
 format:
