@@ -54,7 +54,6 @@ $$
 
 cbb <- read.csv("cbb.csv")
 contenders <- subset(cbb, POSTSEASON %in% c("2ND", "F4", "Champions"))
-nrow(contenders)
 
 n <- nrow(contenders)
 L <- min(contenders$ADJDE)
@@ -65,7 +64,7 @@ curve((n/β)*exp(-(x-L)/β)*(1-exp(-(x-L)/β))^(n-1),
       panel.first=grid(),
       col="maroon", 
       lwd=3,
-      main="pdf of the Theoretical Distirbution for Adjusted Defensive Rating for Contenders",
+      main="pdf of the Theoretical Distirbution for Contenders ADR",
       xlab="Adjusted Defensive Rating", ylab="f(x)")
 abline(v=(L+β*log(n)), 
        col="black", 
