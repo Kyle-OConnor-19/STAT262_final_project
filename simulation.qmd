@@ -1,3 +1,83 @@
 ---
 title: "Simulation"
 ---
+```{r}
+library(ggplot2)
+
+# --- Parameters (from your study) ---
+cbb <- read.csv("cbb.csv")
+contenders <- subset(cbb, POSTSEASON %in% c("2ND", "F4", "Champions"))
+
+n    <- nrow(contenders)
+L    <- min(contenders$ADJDE)
+beta <- mean(contenders$ADJDE) - min(contenders$ADJDE)
+threshold <- L + beta * log(n)
+
+# --- Theoretical PDF curve ---
+x_seq <- seq(L + 0.01, 150, length.out = 500)
+f_x   <- (n / beta) * exp(-(x_seq - L) / beta) * (1 - exp(-(x_seq - L) / beta))^(n - 1)
+pdf_df <- data.frame(x = x_seq, fx = f_x)
+
+# --- Simulation: draw 10,000 samples of size n from shifted exponential,
+#     record the maximum of each sample ---
+set.seed(42)
+n_sims   <- 10000
+sim_maxes <- replicate(n_sims, {
+  draws <- L + rexp(n, rate = 1 / beta)
+  max(draws)
+})
+sim_df <- data.frame(max_adjde = sim_maxes)
+
+# --- Plot 1: Theoretical PDF with threshold line ---
+p1 <- ggplot(pdf_df, aes(x = x, y = fx)) +
+  geom_line(color = "maroon", linewidth = 1.2) +
+  geom_vline(xintercept = threshold, linetype = "dashed", linewidth = 0.9) +
+  annotate("text",
+           x     = threshold + 0.8,
+           y     = max(f_x) * 0.95,
+           label = paste0("Threshold = ", round(threshold, 1)),
+           hjust = 0, size = 3.5) +
+  labs(
+    title   = "Theoretical PDF of Maximum ADJDE Among Contenders",
+    subtitle = paste0("Shifted Exponential | n = ", n,
+                      ", L = ", round(L, 1),
+                      ", β = ", round(beta, 2)),
+    x = "Adjusted Defensive Rating",
+    y = "f(x)"
+  ) +
+  theme_bw(base_size = 13) +
+  theme(panel.grid.minor = element_blank())
+
+# --- Plot 2: Simulated histogram vs theoretical PDF ---
+# Scale PDF to histogram density for overlay
+p2 <- ggplot(sim_df, aes(x = max_adjde)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 60, fill = "steelblue", color = "white", alpha = 0.7) +
+  geom_line(data = pdf_df, aes(x = x, y = fx),
+            color = "maroon", linewidth = 1.2, inherit.aes = FALSE) +
+  geom_vline(xintercept = threshold, linetype = "dashed", linewidth = 0.9) +
+  annotate("text",
+           x     = threshold + 0.8,
+           y     = max(f_x) * 0.95,
+           label = paste0("Threshold = ", round(threshold, 1)),
+           hjust = 0, size = 3.5) +
+  labs(
+    title    = "Simulated vs Theoretical Distribution of Maximum ADJDE",
+    subtitle = paste0(format(n_sims, big.mark = ","),
+                      " simulated samples of size n = ", n),
+    x = "Maximum Adjusted Defensive Rating",
+    y = "Density"
+  ) +
+  theme_bw(base_size = 13) +
+  theme(panel.grid.minor = element_blank())
+
+p1
+p2
+
+# --- Summary stats from simulation ---
+cat("Theoretical threshold (mode): ", round(threshold, 4), "\n")
+cat("Simulated mean of max:        ", round(mean(sim_maxes), 4), "\n")
+cat("Simulated median of max:      ", round(median(sim_maxes), 4), "\n")
+cat("Simulated SD of max:          ", round(sd(sim_maxes), 4), "\n")
+```
+

@@ -28,11 +28,9 @@ $$
 f'_X(x|\beta)=\frac{n}{\beta}[(-\frac{1}{\beta}e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}+(e^{-\frac{x-L}{\beta}})((n-1)((1-e^{-\frac{x-L}{\beta}})^{n-2})(\frac{1}{\beta}e^{-\frac{x-L}{\beta}}))]
 $$
 
-
 $$
 f'_X(x|\beta)=[ {{\color{purple}{ \left(-\frac{n}{\beta^2} \right) }}} {{\color{orange}{e^{-\frac{x-L}{\beta}}}}} ] {{\color{green}{(1-e^{-\frac{x-L}{\beta}})^{n-1}}}} + (e^{-\frac{x-L}{\beta}}) \left( (n-1) {{\color{green}{(1-e^{-\frac{x-L}{\beta}})^{n-2}}}} {{\color{purple}{ \left(\frac{n}{\beta^2} \right) }}} {{\color{orange}{e^{-\frac{x-L}{\beta}}}}} \right)
 $$
-
 
 $$
 f'_X(x|\beta)=[-\frac{n}{\beta^2}][e^{-\frac{x-L}{\beta}}][1-e^{-\frac{x-L}{\beta}}]((n-1)(e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}}))
@@ -40,14 +38,11 @@ $$
 
 $$
 f'_X(x|\beta)= {{\color{red}{\left[-\frac{n}{\beta^2}\right]\left[e^{-\frac{x-L}{\beta}}\right]\left[1-e^{-\frac{x-L}{\beta}}\right]^{n-2}}}} \left((n-1)e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}})\right)=0
-$$
-$$
+$$ $$
 (n-1)e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}})=0 \rightarrow ne^{-\frac{x-L}{\beta}} {{\color{red}{-e^{-\frac{x-L}{\beta}}}}} -1 {{\color{red}{+e^{-\frac{x-L}{\beta}}}}} = 0
-$$
-$$
+$$ $$
 ne^{-\frac{x-L}{\beta}}-1=0 \rightarrow e^{-\frac{x-L}{\beta}}=\frac{1}{n}
-$$
-$$
+$$ $$
 -\frac{x-L}{\beta}=ln(\frac{1}{n}) \rightarrow \frac{x-L}{\beta}=-ln(\frac{1}{n})
 $$
 
@@ -62,10 +57,3 @@ $$
 $$
 x=L+\beta ln(n)
 $$
-
-
-
-
-
-
-
