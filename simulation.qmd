@@ -53,7 +53,7 @@ p2
 
 ## Simulation Results
 
-To validate the theoretical model, 10,000 samples of size $n = 57$ were drawn from a shifted exponential distribution with shift $L = 84.0$ and scale $\hat{\beta} = 6.8$, and the maximum of each sample was recorded.
+To validate the theoretical model, 10,000 samples of size $n = 48$ were drawn from a shifted exponential distribution with shift $L = 84.0$ and scale $\hat{\beta} = 6.8$, and the maximum of each sample was recorded.
 
 The theoretical threshold (mode of the maximum's distribution) was found to be $L + \hat{\beta}\ln(n) = 117.1$, meaning that a team with an adjusted defensive rating at or below **117.1** can be considered a realistic national championship contender. The simulated mean and median of the maximum were **122.2** and **120.3**, respectively, with a standard deviation of **10.9**.
 

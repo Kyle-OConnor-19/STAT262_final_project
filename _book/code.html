@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Introduction – STAT 262 Final Project: March Madness Defensive Ratings</title>
+<title>Appendix B — Code – STAT 262 Final Project: March Madness Defensive Ratings</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./simulation.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./derivations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -110,7 +80,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./derivations.html">Appendices</a></li><li class="breadcrumb-item"><a href="./code.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,7 +113,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -170,7 +140,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code.html" class="sidebar-item-text sidebar-link">
+  <a href="./code.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code</span></span></a>
   </div>
 </li>
@@ -181,24 +151,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of Contents</h2>
-   
-  <ul>
-  <li><a href="#variable-of-interest" id="toc-variable-of-interest" class="nav-link active" data-scroll-target="#variable-of-interest"><span class="header-section-number">2.1</span> Variable of Interest</a></li>
-  <li><a href="#population-and-sampling" id="toc-population-and-sampling" class="nav-link" data-scroll-target="#population-and-sampling"><span class="header-section-number">2.2</span> Population and Sampling</a></li>
-  <li><a href="#research-question-and-rationale" id="toc-research-question-and-rationale" class="nav-link" data-scroll-target="#research-question-and-rationale"><span class="header-section-number">2.3</span> Research Question and Rationale</a></li>
-  <li><a href="#theoretical-cdf-and-pdf-distributions" id="toc-theoretical-cdf-and-pdf-distributions" class="nav-link" data-scroll-target="#theoretical-cdf-and-pdf-distributions"><span class="header-section-number">2.4</span> Theoretical CDF and pdf Distributions</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./derivations.html">Appendices</a></li><li class="breadcrumb-item"><a href="./code.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title">Appendix B — Code</h1>
 </div>
 
 
@@ -215,44 +176,8 @@ window.Quarto = {
 </header>
 
 
-<p>There’s a common motto in the realm of collegiate and professional basketball: “Defense wins championships.” This montra has become a truism in the college basketball world, and every fan always mentions how great of a defensive unit their team is when discussing a potential deep tournament run. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level.</p>
-<p>The goal of this study is to estimate the maximum possible defensive rating a collegiate team can have while still being considered a “title contender”. For this study, a “title contender” is any team that made at least the final four for their respective year. To do this, 4,249 NCAA basketball teams were sampled from 2013-2025, where their identifying information, records, tournament placements, and adjusted defensive ratings were collected. This sample came from a population of all Division I College Basketball Schools that played Division I Basketball between 2013-2025, as seen in <a href="index.html#tbl-cbb" class="quarto-xref">Table&nbsp;<span>1.1</span></a>.</p>
-<section id="variable-of-interest" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="variable-of-interest"><span class="header-section-number">2.1</span> Variable of Interest</h2>
-<p><em>cbb$ADJD</em> → Adjusted Defensive Rating. According to the original data source, this variable is “[an] estimate of the defensive efficiency (points allowed per 100 possessions) a team would have against the average Division I offense” (Sundberg, 2026). A higher score indicates a worse overall defense, while a lower score indicates a better defense. While a super low ADR is theoretically possible, it has probability 0. The average ADR for the entire sample was found to be 103.6, with a minimum sample value of 84.0 and a maximum sample value of 125.3.</p>
-</section>
-<section id="population-and-sampling" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="population-and-sampling"><span class="header-section-number">2.2</span> Population and Sampling</h2>
-<p>Because the goal is to identify an optimal range of defensive ratings for teams that are competing for a championship, we will only be sampling from teams who classify as a “title contender”. For this group, the average ADR is 92.55, with a minimum of 84 and a maximum of 102.1.</p>
-<hr>
-</section>
-<section id="research-question-and-rationale" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="research-question-and-rationale"><span class="header-section-number">2.3</span> Research Question and Rationale</h2>
-<p><strong>Research Question</strong>: What is the maximum defensive rating needed to be a true national championship contender in March Madness?</p>
-<p><strong>Reasoning</strong>: The maximum value would indicate the level of defense needed for a college basketball team to have realistic expectations of winning the entire tournament, because the higher the defensive rating, the worse a team is defensively. It would be helpful for coaches and players to know what this threshold is to manage expectations and to provide a framework of where they need to get to defensively in order to advance further in the tournament.</p>
-<p><strong>Hypothesized Distribution</strong>: We believe that this scenario would fit an exponential distribution, because defensive rating is a non-negative, continuous variable. However, it would be a shifted exponential because an extremely low season-long defensive rating is near impossible for teams today. We also believe that a maximum is appropriate because most champions are going to have a lower defensive rating, as it shows that the team is less likely to give up points on opposing possessions. A maximum value in this case would represent the highest defensive rating a team can have before they are no longer considered a national championship contender.</p>
-</section>
-<section id="theoretical-cdf-and-pdf-distributions" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="theoretical-cdf-and-pdf-distributions"><span class="header-section-number">2.4</span> Theoretical CDF and pdf Distributions</h2>
-<p><span class="math display">\[F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x&gt;0\]</span></p>
-<p><span class="math display">\[f_{X_i}(x|\beta)=\frac{n}{\beta}e^{-\frac{x-L}{\beta}}(1-e^{-\frac{x-L}{\beta}})^{n-1}, \ \ x&gt;0\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="intro_files/figure-html/fig-dist-1.png" class="img-fluid figure-img" width="768">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Theoretical Distribution of the pdf
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -674,14 +599,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Data Documentation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Documentation</span></span>
+      <a href="./derivations.html" class="pagination-link" aria-label="Derivations of Expressions Used in Report">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Derivations of Expressions Used in Report</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./simulation.html" class="pagination-link" aria-label="Simulation">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Simulation</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

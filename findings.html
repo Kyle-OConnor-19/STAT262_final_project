@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Introduction – STAT 262 Final Project: March Madness Defensive Ratings</title>
+<title>Summary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,51 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./simulation.html" rel="next">
-<link href="./index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="findings_files/libs/clipboard/clipboard.min.js"></script>
+<script src="findings_files/libs/quarto-html/quarto.js"></script>
+<script src="findings_files/libs/quarto-html/popper.min.js"></script>
+<script src="findings_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="findings_files/libs/quarto-html/anchor.min.js"></script>
+<link href="findings_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="findings_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="findings_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="findings_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="findings_files/libs/bootstrap/bootstrap-973236bd072d72a04ee9cd82dcc9cb29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -101,104 +66,15 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="fullcontent">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">STAT 262 Final Project: March Madness Defensive Ratings</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Documentation</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Simulation</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./derivations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Derivations of Expressions Used in Report</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Code</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of Contents</h2>
-   
-  <ul>
-  <li><a href="#variable-of-interest" id="toc-variable-of-interest" class="nav-link active" data-scroll-target="#variable-of-interest"><span class="header-section-number">2.1</span> Variable of Interest</a></li>
-  <li><a href="#population-and-sampling" id="toc-population-and-sampling" class="nav-link" data-scroll-target="#population-and-sampling"><span class="header-section-number">2.2</span> Population and Sampling</a></li>
-  <li><a href="#research-question-and-rationale" id="toc-research-question-and-rationale" class="nav-link" data-scroll-target="#research-question-and-rationale"><span class="header-section-number">2.3</span> Research Question and Rationale</a></li>
-  <li><a href="#theoretical-cdf-and-pdf-distributions" id="toc-theoretical-cdf-and-pdf-distributions" class="nav-link" data-scroll-target="#theoretical-cdf-and-pdf-distributions"><span class="header-section-number">2.4</span> Theoretical CDF and pdf Distributions</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title">Summary</h1>
 </div>
 
 
@@ -215,46 +91,16 @@ window.Quarto = {
 </header>
 
 
-<p>There’s a common motto in the realm of collegiate and professional basketball: “Defense wins championships.” This montra has become a truism in the college basketball world, and every fan always mentions how great of a defensive unit their team is when discussing a potential deep tournament run. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level.</p>
-<p>The goal of this study is to estimate the maximum possible defensive rating a collegiate team can have while still being considered a “title contender”. For this study, a “title contender” is any team that made at least the final four for their respective year. To do this, 4,249 NCAA basketball teams were sampled from 2013-2025, where their identifying information, records, tournament placements, and adjusted defensive ratings were collected. This sample came from a population of all Division I College Basketball Schools that played Division I Basketball between 2013-2025, as seen in <a href="index.html#tbl-cbb" class="quarto-xref">Table&nbsp;<span>1.1</span></a>.</p>
-<section id="variable-of-interest" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="variable-of-interest"><span class="header-section-number">2.1</span> Variable of Interest</h2>
-<p><em>cbb$ADJD</em> → Adjusted Defensive Rating. According to the original data source, this variable is “[an] estimate of the defensive efficiency (points allowed per 100 possessions) a team would have against the average Division I offense” (Sundberg, 2026). A higher score indicates a worse overall defense, while a lower score indicates a better defense. While a super low ADR is theoretically possible, it has probability 0. The average ADR for the entire sample was found to be 103.6, with a minimum sample value of 84.0 and a maximum sample value of 125.3.</p>
-</section>
-<section id="population-and-sampling" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="population-and-sampling"><span class="header-section-number">2.2</span> Population and Sampling</h2>
-<p>Because the goal is to identify an optimal range of defensive ratings for teams that are competing for a championship, we will only be sampling from teams who classify as a “title contender”. For this group, the average ADR is 92.55, with a minimum of 84 and a maximum of 102.1.</p>
-<hr>
-</section>
-<section id="research-question-and-rationale" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="research-question-and-rationale"><span class="header-section-number">2.3</span> Research Question and Rationale</h2>
-<p><strong>Research Question</strong>: What is the maximum defensive rating needed to be a true national championship contender in March Madness?</p>
-<p><strong>Reasoning</strong>: The maximum value would indicate the level of defense needed for a college basketball team to have realistic expectations of winning the entire tournament, because the higher the defensive rating, the worse a team is defensively. It would be helpful for coaches and players to know what this threshold is to manage expectations and to provide a framework of where they need to get to defensively in order to advance further in the tournament.</p>
-<p><strong>Hypothesized Distribution</strong>: We believe that this scenario would fit an exponential distribution, because defensive rating is a non-negative, continuous variable. However, it would be a shifted exponential because an extremely low season-long defensive rating is near impossible for teams today. We also believe that a maximum is appropriate because most champions are going to have a lower defensive rating, as it shows that the team is less likely to give up points on opposing possessions. A maximum value in this case would represent the highest defensive rating a team can have before they are no longer considered a national championship contender.</p>
-</section>
-<section id="theoretical-cdf-and-pdf-distributions" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="theoretical-cdf-and-pdf-distributions"><span class="header-section-number">2.4</span> Theoretical CDF and pdf Distributions</h2>
-<p><span class="math display">\[F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x&gt;0\]</span></p>
-<p><span class="math display">\[f_{X_i}(x|\beta)=\frac{n}{\beta}e^{-\frac{x-L}{\beta}}(1-e^{-\frac{x-L}{\beta}})^{n-1}, \ \ x&gt;0\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="intro_files/figure-html/fig-dist-1.png" class="img-fluid figure-img" width="768">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Theoretical Distribution of the pdf
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-
-
+<section id="simulation-results" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-results">Simulation Results</h2>
+<p>To validate the theoretical model, 10,000 samples of size <span class="math inline">\(n = 57\)</span> were drawn from a shifted exponential distribution with shift <span class="math inline">\(L = 84.0\)</span> and scale <span class="math inline">\(\hat{\beta} = 6.8\)</span>, and the maximum of each sample was recorded.</p>
+<p>The theoretical threshold (mode of the maximum’s distribution) was found to be <span class="math inline">\(L + \hat{\beta}\ln(n) = 117.1\)</span>, meaning that a team with an adjusted defensive rating at or below <strong>117.1</strong> can be considered a realistic national championship contender. The simulated mean and median of the maximum were <strong>122.2</strong> and <strong>120.3</strong>, respectively, with a standard deviation of <strong>10.9</strong>.</p>
+<p>The gap between the theoretical mode (117.1) and the simulated mean (122.2) is expected — the distribution of the maximum is right-skewed, so the mean is pulled above the mode by the long upper tail. The mode remains the most appropriate summary statistic here because it represents the most <em>likely</em> maximum defensive rating among contenders, rather than the average, which is inflated by rare cases of deep tournament runs by teams with weaker defenses.</p>
+<p>The simulation confirms that the shifted exponential model is a reasonable fit for this data: the theoretical PDF closely tracks the simulated histogram, and the simulated median of 120.3 sits near the mode, consistent with the moderate right skew expected from an order statistic of this form.</p>
 </section>
 
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -672,18 +518,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Data Documentation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Documentation</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./simulation.html" class="pagination-link" aria-label="Simulation">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Simulation</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
