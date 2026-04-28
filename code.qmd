@@ -2,3 +2,81 @@
 title: "Code"
 ---
 
+## Theoretical pdf Code
+
+:::{.callout-warning}
+## Usage of B versus Beta
+In the code, we use the actual symbol $β$, but for some reason, it doesn't show up in this portion naturally. Because of this, we use B as a substitute so it can be seen visually in the code, but the actual code uses $β$.
+
+:::
+
+```{r}
+
+cbb <- read.csv("cbb.csv")
+contenders <- subset(cbb, POSTSEASON %in% c("2ND", "F4", "Champions"))
+
+n <- nrow(contenders)
+L <- min(contenders$ADJDE)
+B <- mean(contenders$ADJDE)-min(contenders$ADJDE)
+  
+curve((n/B)*exp(-(x-L)/B)*(1-exp(-(x-L)/B))^(n-1),
+      from=84, to=175, 
+      panel.first=grid(),
+      col="maroon", 
+      lwd=3,
+      main="pdf of the Theoretical Distribution for Contenders ADR",
+      xlab="Adjusted Defensive Rating", ylab="f(x)")
+abline(v=(L+B*log(n)), 
+       col="black", 
+       lwd=2, 
+       lty="dashed")
+
+```
+
+## Simulation Code
+```{r}
+
+library(ggplot2)
+
+cbb <- read.csv("cbb.csv")
+contenders <- subset(cbb, POSTSEASON %in% c("2ND", "F4", "Champions"))
+n <- nrow(contenders)
+L <- min(contenders$ADJDE)
+B <- mean(contenders$ADJDE)-min(contenders$ADJDE)
+pdf.threshold <- L+B*log(n)
+
+x.sequence <- seq(L+0.01, 200, length.out=500)
+f.x <- (n/B)*exp(-(x.sequence-L)/B)*(1-exp(-(x.sequence-L)/B))^(n-1)
+pdf.df <- data.frame(x=x.sequence, fx=f.x)
+
+set.seed(42)
+sim.maximum <- replicate(10000, {
+  draws <- L+rexp(n, rate=1/B)
+  max(draws)
+})
+sim.df <- data.frame(max_adjde=sim.maximum)
+
+p2 <- ggplot(sim.df, aes(x=max_adjde))+
+  geom_histogram(aes(y=after_stat(density)),
+                 bins=60,
+                 fill="lightblue",
+                 color="white",
+                 alpha=0.7)+
+  geom_line(data=pdf.df,
+            aes(x=x, y=f.x),
+            color="maroon",
+            inherit.aes=FALSE)+
+  geom_vline(xintercept=pdf.threshold, 
+             linetype="dashed",
+             linewidth=0.9)+
+  annotate("text",
+           x=pdf.threshold+0.8,
+           y=max(f.x)*0.95,
+           label=paste0("Threshold = ", round(pdf.threshold, 1)),
+           hjust=0, size=3.5)+
+  labs(title="Simulated vs Theoretical Distribution of Maximum ADJDE",
+       x="Maximum Adjusted Defensive Rating",
+       y="Density")
+p2
+
+```

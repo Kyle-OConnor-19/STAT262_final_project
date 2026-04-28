@@ -7,10 +7,12 @@ book:
     - "Nathan Swenson"
     - "Ty Hansen"
     - "Kyle O'Connor"
+  date: "04/28/2026"
   chapters:
     - index.qmd
     - intro.qmd
     - simulation.qmd
+    - disc-conclusion.qmd
   appendices:
   - derivations.qmd
   - code.qmd

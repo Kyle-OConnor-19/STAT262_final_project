@@ -1,6 +1,6 @@
-# Introduction
+# Introduction and Methodology
 
-There's a common motto in the realm of collegiate and professional basketball: "Defense wins championships." This montra has become a truism in the college basketball world, and every fan always mentions how great of a defensive unit their team is when discussing a potential deep tournament run. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level. 
+There's a common motto in the realm of collegiate and professional basketball: "Defense wins championships." This mantra has become a truism in the college basketball world, and every fan always mentions how great of a defensive unit their team is when discussing a potential deep tournament run. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level. 
 
 The goal of this study is to estimate the maximum possible defensive rating a collegiate team can have while still being considered a "title contender". For this study, a "title contender" is any team that made at least the final four for their respective year. To do this, 4,249 NCAA basketball teams were sampled from 2013-2025, where their identifying information, records, tournament placements, and adjusted defensive ratings were collected. This sample came from a population of all Division I College Basketball Schools that played Division I Basketball between 2013-2025, as seen in @tbl-cbb.
 
@@ -12,8 +12,6 @@ The goal of this study is to estimate the maximum possible defensive rating a co
 
 Because the goal is to identify an optimal range of defensive ratings for teams that are competing for a championship, we will only be sampling from teams who classify as a "title contender". For this group, the average ADR is 92.55, with a minimum of 84 and a maximum of 102.1.
 
-------------------------------------------------------------------------
-
 ## Research Question and Rationale
 
 **Research Question**: What is the maximum defensive rating needed to be a true national championship contender in March Madness?
@@ -24,9 +22,13 @@ Because the goal is to identify an optimal range of defensive ratings for teams 
 
 ## Theoretical CDF and pdf Distributions
 
-$$F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x>0$$
+$$
+F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x>0
+$$
 
-$$f_{X_i}(x|\beta)=\frac{n}{\beta}e^{-\frac{x-L}{\beta}}(1-e^{-\frac{x-L}{\beta}})^{n-1}, \ \ x>0$$
+$$
+f_{X_i}(x|\beta)=\frac{n}{\beta}e^{-\frac{x-L}{\beta}}(1-e^{-\frac{x-L}{\beta}})^{n-1}, \ \ x>0
+$$
 
 ```{r}
 #| echo: FALSE
