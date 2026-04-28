@@ -1,10 +1,6 @@
 # Introduction and Methodology
 
-<<<<<<< HEAD
 There's a common motto in the realm of collegiate and professional basketball: "Defense wins championships." This mantra has become a truism in the college basketball world, and every fan always mentions how great of a defensive unit their team is when discussing a potential deep tournament run. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level. 
-
-There's a common motto in the realm of collegiate and professional basketball: "Defense wins championships." This montra has become a truism in the college basketball world, and every fan always mentions how great of a defensive unit their team is when discussing a potential deep tournament run. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level.
-
 
 The goal of this study is to estimate the maximum possible defensive rating a collegiate team can have while still being considered a "title contender". For this study, a "title contender" is any team that made at least the final four for their respective year. To do this, 4,249 NCAA basketball teams were sampled from 2013-2025, where their identifying information, records, tournament placements, and adjusted defensive ratings were collected. This sample came from a population of all Division I College Basketball Schools that played Division I Basketball between 2013-2025, as seen in @tbl-cbb.
 
@@ -14,7 +10,7 @@ The goal of this study is to estimate the maximum possible defensive rating a co
 
 ## Population and Sampling
 
-Because the goal is to identify an optimal range of defensive ratings for teams that are competing for a championship, we will only be sampling from teams who classify as a "title contender". For this group, the average ADR is 92.55, with a minimum of 84 and a maximum of 102.1.
+Because the goal is to identify an optimal range of defensive ratings for teams that are competing for a championship, we will only be sampling from teams who classify as a "title contender". In total, there are 48 title contenders in this dataset. For this group, the average ADR is 92.55, with a minimum of 84 and a maximum of 102.1.
 
 ## Research Question and Rationale
 

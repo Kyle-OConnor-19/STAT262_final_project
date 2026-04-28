@@ -35,6 +35,9 @@ abline(v=(L+B*log(n)),
 
 ## Simulation Code
 ```{r}
+#| fig-width: 8
+#| fig-height: 4
+#| out-width: "100%"
 
 library(ggplot2)
 
@@ -56,27 +59,27 @@ sim.maximum <- replicate(10000, {
 })
 sim.df <- data.frame(max_adjde=sim.maximum)
 
-p2 <- ggplot(sim.df, aes(x=max_adjde))+
-  geom_histogram(aes(y=after_stat(density)),
+sim.plot <- ggplot(sim.df, aes(x=max_adjde))+
+  geom_histogram(aes(y=after_stat(density), fill="Simulated Data"),
                  bins=60,
-                 fill="lightblue",
                  color="white",
                  alpha=0.7)+
   geom_line(data=pdf.df,
-            aes(x=x, y=f.x),
-            color="maroon",
+            aes(x=x, y=f.x, color="Theoretical Dist."),
             inherit.aes=FALSE)+
-  geom_vline(xintercept=pdf.threshold, 
+  geom_vline(aes(xintercept=pdf.threshold, color="Threshold Shift"),
              linetype="dashed",
-             linewidth=0.9)+
-  annotate("text",
-           x=pdf.threshold+0.8,
-           y=max(f.x)*0.95,
-           label=paste0("Threshold = ", round(pdf.threshold, 1)),
-           hjust=0, size=3.5)+
-  labs(title="Simulated vs Theoretical Distribution of Maximum ADJDE",
+             linewidth=0.5)+
+  geom_vline(aes(xintercept=122.2, color="Observed Mean Shift"),
+             linetype="dashed",
+             linewidth=0.5)+
+  scale_fill_manual(name=NULL, values=c("Simulated Data"="lightblue"))+
+  scale_color_manual(name=NULL, values=c("Theoretical Dist."="maroon", 
+                                         "Threshold Shift"="black", 
+                                         "Observed Mean Shift"="red"))+
+  labs(title="Simulated vs Theoretical Distribution of Maximum ADR",
        x="Maximum Adjusted Defensive Rating",
        y="Density")
-p2
+sim.plot
 
 ```

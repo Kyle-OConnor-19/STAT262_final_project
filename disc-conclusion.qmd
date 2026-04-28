@@ -8,7 +8,7 @@ The gap between the theoretical mode (117.1) and the simulated mean (122.2) is e
 
 The simulation confirms that the shifted exponential model is a reasonable fit for this data: the theoretical PDF closely tracks the simulated histogram, and the simulated median of 120.3 sits near the mode, consistent with the moderate right skew expected from an order statistic of this form.
 
-Based on the simulation, the median value of 120.3 is the maximum possible ADR a team could have if they want to have a realistic shot at the national championship. A team with this rating is extremely unlikely to actually win however, as this value estimates an absolute maximum. A much lower value (a value within the 90s) would more likely correlate with postseason success.
+Based on the simulation, the median value of 117.1 is the maximum possible ADR a team could have if they want to have a realistic shot at the national championship. A team with this rating is extremely unlikely to actually win however, as this value estimates an absolute maximum. A much lower value (a value within the 90s) would more likely correlate with postseason success.
 
 Our research backs up the importance of a good defensive system in order for a team to have justifiable aspirations for a deep postseason run. Historically, defensive ratings have been an above-average indicator for championship-caliber teams, and the mantra "defense wins championships" has stood the test of time for a reason.
 
