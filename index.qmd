@@ -17,7 +17,6 @@ writeLines("\\footnotesize")
 knitr::kable(head(cbb[c(1:4,6:7,9,22:24)], 10))
 writeLines("\\normalsize")
 
-summary(cbb$ADJDE)
 ```
 
 [**Variable List:**]{.underline}

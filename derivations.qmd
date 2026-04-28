@@ -2,58 +2,49 @@
 
 ## pdf of the Shifted Exponential
 
-$$
-F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x>0
-$$
+$$F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x>0$$
 
-$$
-F'_X(x|\beta)=(n)(1-e^{-\frac{x-L}{\beta}})^{n-1}(\frac{1}{\beta}e^{-\frac{x-L}{\beta}})
-$$
+$$F'_X(x|\beta)=(n)(1-e^{-\frac{x-L}{\beta}})^{n-1}(\frac{1}{\beta}e^{-\frac{x-L}{\beta}})$$
 
-$$
-f_X(x|\beta)=(\frac{n}{\beta})(e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}
-$$
+$$f_X(x|\beta)=(\frac{n}{\beta})(e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}$$
 
 ## Derivation of Maximum Value of the pdf
 
-$$
-f_X(x|\beta)=(\frac{n}{\beta})(e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}
-$$
+$$f_X(x|\beta)=(\frac{n}{\beta})(e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}$$
 
-$$
-f'_X(x|\beta)=\frac{d}{dx}[(\frac{n}{\beta})(e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}]
-$$
+$$f'_X(x|\beta)=\frac{d}{dx}[(\frac{n}{\beta})(e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}]$$
 
-$$
-f'_X(x|\beta)=\frac{n}{\beta}[(-\frac{1}{\beta}e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}+(e^{-\frac{x-L}{\beta}})((n-1)((1-e^{-\frac{x-L}{\beta}})^{n-2})(\frac{1}{\beta}e^{-\frac{x-L}{\beta}}))]
-$$
+$$f'_X(x|\beta)=\frac{n}{\beta}[(-\frac{1}{\beta}e^{-\frac{x-L}{\beta}})(1-e^{-\frac{x-L}{\beta}})^{n-1}+(e^{-\frac{x-L}{\beta}})((n-1)((1-e^{-\frac{x-L}{\beta}})^{n-2})(\frac{1}{\beta}e^{-\frac{x-L}{\beta}}))]$$
 
-$$
-f'_X(x|\beta)=[ {{\color{purple}{ \left(-\frac{n}{\beta^2} \right) }}} {{\color{orange}{e^{-\frac{x-L}{\beta}}}}} ] {{\color{green}{(1-e^{-\frac{x-L}{\beta}})^{n-1}}}} + (e^{-\frac{x-L}{\beta}}) \left( (n-1) {{\color{green}{(1-e^{-\frac{x-L}{\beta}})^{n-2}}}} {{\color{purple}{ \left(\frac{n}{\beta^2} \right) }}} {{\color{orange}{e^{-\frac{x-L}{\beta}}}}} \right)
-$$
+$$f'_X(x|\beta)=[ {{\color{purple}{ \left(-\frac{n}{\beta^2} \right) }}} {{\color{orange}{e^{-\frac{x-L}{\beta}}}}} ] {{\color{green}{(1-e^{-\frac{x-L}{\beta}})^{n-1}}}} + (e^{-\frac{x-L}{\beta}}) \left( (n-1) {{\color{green}{(1-e^{-\frac{x-L}{\beta}})^{n-2}}}} {{\color{purple}{ \left(\frac{n}{\beta^2} \right) }}} {{\color{orange}{e^{-\frac{x-L}{\beta}}}}} \right)$$
 
-$$
-f'_X(x|\beta)=[-\frac{n}{\beta^2}][e^{-\frac{x-L}{\beta}}][1-e^{-\frac{x-L}{\beta}}]((n-1)(e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}}))
-$$
+$$f'_X(x|\beta)=[-\frac{n}{\beta^2}][e^{-\frac{x-L}{\beta}}][1-e^{-\frac{x-L}{\beta}}]((n-1)(e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}}))$$
 
-$$
-f'_X(x|\beta)= {{\color{red}{\left[-\frac{n}{\beta^2}\right]\left[e^{-\frac{x-L}{\beta}}\right]\left[1-e^{-\frac{x-L}{\beta}}\right]^{n-2}}}} \left((n-1)e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}})\right)=0
-$$ $$
-(n-1)e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}})=0 \rightarrow ne^{-\frac{x-L}{\beta}} {{\color{red}{-e^{-\frac{x-L}{\beta}}}}} -1 {{\color{red}{+e^{-\frac{x-L}{\beta}}}}} = 0
-$$ $$
-ne^{-\frac{x-L}{\beta}}-1=0 \rightarrow e^{-\frac{x-L}{\beta}}=\frac{1}{n}
-$$ $$
--\frac{x-L}{\beta}=ln(\frac{1}{n}) \rightarrow \frac{x-L}{\beta}=-ln(\frac{1}{n})
-$$
+$$f'_X(x|\beta)= {{\color{red}{\left[-\frac{n}{\beta^2}\right]\left[e^{-\frac{x-L}{\beta}}\right]\left[1-e^{-\frac{x-L}{\beta}}\right]^{n-2}}}} \left((n-1)e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}})\right)=0$$
 
-$$
-\frac{x-L}{\beta}=ln{((\frac{1}{n})^{-1})}
-$$
+$$(n-1)e^{-\frac{x-L}{\beta}}-(1-e^{-\frac{x-L}{\beta}})=0 \rightarrow ne^{-\frac{x-L}{\beta}} {{\color{red}{-e^{-\frac{x-L}{\beta}}}}} -1 {{\color{red}{+e^{-\frac{x-L}{\beta}}}}} = 0$$
 
-$$
-\frac{x-L}{\beta}=ln(n)
-$$
+$$ne^{-\frac{x-L}{\beta}}-1=0 \rightarrow e^{-\frac{x-L}{\beta}}=\frac{1}{n}$$
 
-$$
-x=L+\beta ln(n)
-$$
+$$-\frac{x-L}{\beta}=ln(\frac{1}{n}) \rightarrow \frac{x-L}{\beta}=-ln(\frac{1}{n})$$
+
+$$\frac{x-L}{\beta}=ln{((\frac{1}{n})^{-1})}$$
+
+$$\frac{x-L}{\beta}=ln(n)$$
+
+$$x=L+\beta ln(n)$$
+
+--------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------
+$$Generic \ Shifted \ Beta \rightarrow F_X(x|\beta) =
+\begin{cases} 
+      1-e^{-\frac{x-L}{\beta}} & x \geq L \\
+      0 & x<L\\
+\end{cases}$$
+---------------------------------------------------------------------------------------------------------------------------
+$$max(X_1,...,X_n)=T(X_1,...,X_n)\stackrel{ind}{=}P(X_1\le t)P(X_2\le t)...P(X_n\le t)=[F_X(t)]^n$$
+---------------------------------------------------------------------------------------------------------------------------
+$$F_X(x|\beta) = [1-e^{-\frac{x-L}{\beta}}]^n, x>0$$
+---------------------------------------------------------------------------------------------------------------------------
+$$f_{X_i}(x|\beta)=\frac{d}{dx}F_X(x|\beta)=\frac{n}{\beta}e^{-\frac{x-L}{\beta}}[1-e^{-\frac{x-L}{\beta}}]^{n-1}, \ \ x>0$$
