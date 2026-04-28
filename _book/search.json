@@ -1,0 +1,105 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 262 Final Project: March Madness Defensive Ratings",
+    "section": "",
+    "text": "1 Data Documentation\nThe dataset can be found here: Kaggle College Basketball Dataset.\nFirst 10 Rows of CBB Dataset:\n\n\n\nTable 1.1: College Basketball Defensive Data for NCAA Basketball Seasons from 2013-2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTEAM\nCONF\nG\nW\nADJDE\nBARTHAG\nEFG_D\nPOSTSEASON\nSEED\nYEAR\n\n\n\n\nNorth Carolina\nACC\n40\n33\n94.9\n0.9531\n48.1\n2ND\n1\n2016\n\n\nWisconsin\nB10\n40\n36\n93.6\n0.9758\n47.7\n2ND\n1\n2015\n\n\nMichigan\nB10\n40\n33\n90.4\n0.9375\n47.7\n2ND\n3\n2018\n\n\nTexas Tech\nB12\n38\n31\n85.2\n0.9696\n43.0\n2ND\n3\n2019\n\n\nGonzaga\nWCC\n39\n37\n86.3\n0.9728\n41.1\n2ND\n1\n2017\n\n\nKentucky\nSEC\n40\n29\n96.2\n0.9062\n46.0\n2ND\n8\n2014\n\n\nMichigan\nB10\n38\n30\n93.7\n0.9522\n48.0\n2ND\n4\n2013\n\n\nDuke\nACC\n39\n35\n90.6\n0.9764\n46.5\nChampions\n1\n2015\n\n\nVirginia\nACC\n38\n35\n89.9\n0.9736\n44.7\nChampions\n1\n2019\n\n\nNorth Carolina\nACC\n39\n33\n91.5\n0.9615\n48.1\nChampions\n1\n2017\n\n\n\n\n\n\nVariable List:\n\n\n\nTable 1.2: Dataset Variable Names and Descriptions\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nTEAM\nNCAA Division I School Name\n\n\nCONF\nAthletic Conference\n\n\nW\nGames Won\n\n\nADJDE\nAdjusted Defensive Efficiency (Pts Allowed/100 Poss.)\n\n\nBARTHAG\nPower Rating (Win % vs avg DI team)\n\n\nPOSTSEASON\nTournament Exit Round (e.g., S16, F4, Champion)\n\n\nSEED\nTournament Seed\n\n\nYEAR\nSeason Year",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Documentation</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "2  Introduction",
+    "section": "",
+    "text": "2.1 Variable of Interest\nThere’s a common motto in the realm of collegiate and professional basketball: “Defense wins championships.” This montra has become a truism in the college basketball world, and every fan always mentions how great of a defensive unit their team is when discussing a potential deep tournament run. While the statement in and on itself is taken for granted, it is rarely ever quantified to a meaningful level.\nThe goal of this study is to estimate the maximum possible defensive rating a collegiate team can have while still being considered a “title contender”. For this study, a “title contender” is any team that made at least the final four for their respective year. To do this, 4,249 NCAA basketball teams were sampled from 2013-2025, where their identifying information, records, tournament placements, and adjusted defensive ratings were collected. This sample came from a population of all Division I College Basketball Schools that played Division I Basketball between 2013-2025, as seen in Table 1.1.\ncbb$ADJD → Adjusted Defensive Rating. According to the original data source, this variable is “[an] estimate of the defensive efficiency (points allowed per 100 possessions) a team would have against the average Division I offense” (Sundberg, 2026). A higher score indicates a worse overall defense, while a lower score indicates a better defense. While a super low ADR is theoretically possible, it has probability 0. The average ADR for the entire sample was found to be 103.6, with a minimum sample value of 84.0 and a maximum sample value of 125.3.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#research-question-and-rationale",
+    "href": "intro.html#research-question-and-rationale",
+    "title": "2  Introduction",
+    "section": "2.3 Research Question and Rationale",
+    "text": "2.3 Research Question and Rationale\nResearch Question: What is the maximum defensive rating needed to be a true national championship contender in March Madness?\nReasoning: The maximum value would indicate the level of defense needed for a college basketball team to have realistic expectations of winning the entire tournament, because the higher the defensive rating, the worse a team is defensively. It would be helpful for coaches and players to know what this threshold is to manage expectations and to provide a framework of where they need to get to defensively in order to advance further in the tournament.\nHypothesized Distribution: We believe that this scenario would fit an exponential distribution, because defensive rating is a non-negative, continuous variable. However, it would be a shifted exponential because an extremely low season-long defensive rating is near impossible for teams today. We also believe that a maximum is appropriate because most champions are going to have a lower defensive rating, as it shows that the team is less likely to give up points on opposing possessions. A maximum value in this case would represent the highest defensive rating a team can have before they are no longer considered a national championship contender.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "derivations.html",
+    "href": "derivations.html",
+    "title": "Appendix A — Derivations of Expressions Used in Report",
+    "section": "",
+    "text": "A.1 pdf of the Shifted Exponential\n\\[F_X(x|\\beta) = [1-e^{-\\frac{x-L}{\\beta}}]^n, x&gt;0\\]\n\\[F'_X(x|\\beta)=(n)(1-e^{-\\frac{x-L}{\\beta}})^{n-1}(\\frac{1}{\\beta}e^{-\\frac{x-L}{\\beta}})\\]\n\\[f_X(x|\\beta)=(\\frac{n}{\\beta})(e^{-\\frac{x-L}{\\beta}})(1-e^{-\\frac{x-L}{\\beta}})^{n-1}\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Derivations of Expressions Used in Report</span>"
+    ]
+  },
+  {
+    "objectID": "derivations.html#derivation-of-maximum-value-of-the-pdf",
+    "href": "derivations.html#derivation-of-maximum-value-of-the-pdf",
+    "title": "Appendix A — Derivations of Expressions Used in Report",
+    "section": "A.2 Derivation of Maximum Value of the pdf",
+    "text": "A.2 Derivation of Maximum Value of the pdf\n\\[f_X(x|\\beta)=(\\frac{n}{\\beta})(e^{-\\frac{x-L}{\\beta}})(1-e^{-\\frac{x-L}{\\beta}})^{n-1}\\]\n\\[f'_X(x|\\beta)=\\frac{d}{dx}[(\\frac{n}{\\beta})(e^{-\\frac{x-L}{\\beta}})(1-e^{-\\frac{x-L}{\\beta}})^{n-1}]\\]\n\\[f'_X(x|\\beta)=\\frac{n}{\\beta}[(-\\frac{1}{\\beta}e^{-\\frac{x-L}{\\beta}})(1-e^{-\\frac{x-L}{\\beta}})^{n-1}+(e^{-\\frac{x-L}{\\beta}})((n-1)((1-e^{-\\frac{x-L}{\\beta}})^{n-2})(\\frac{1}{\\beta}e^{-\\frac{x-L}{\\beta}}))]\\]\n\\[f'_X(x|\\beta)=[ {{\\color{purple}{ \\left(-\\frac{n}{\\beta^2} \\right) }}} {{\\color{orange}{e^{-\\frac{x-L}{\\beta}}}}} ] {{\\color{green}{(1-e^{-\\frac{x-L}{\\beta}})^{n-1}}}} + (e^{-\\frac{x-L}{\\beta}}) \\left( (n-1) {{\\color{green}{(1-e^{-\\frac{x-L}{\\beta}})^{n-2}}}} {{\\color{purple}{ \\left(\\frac{n}{\\beta^2} \\right) }}} {{\\color{orange}{e^{-\\frac{x-L}{\\beta}}}}} \\right)\\]\n\\[f'_X(x|\\beta)=[-\\frac{n}{\\beta^2}][e^{-\\frac{x-L}{\\beta}}][1-e^{-\\frac{x-L}{\\beta}}]((n-1)(e^{-\\frac{x-L}{\\beta}}-(1-e^{-\\frac{x-L}{\\beta}}))\\]\n\\[f'_X(x|\\beta)= {{\\color{red}{\\left[-\\frac{n}{\\beta^2}\\right]\\left[e^{-\\frac{x-L}{\\beta}}\\right]\\left[1-e^{-\\frac{x-L}{\\beta}}\\right]^{n-2}}}} \\left((n-1)e^{-\\frac{x-L}{\\beta}}-(1-e^{-\\frac{x-L}{\\beta}})\\right)=0\\]\n\\[(n-1)e^{-\\frac{x-L}{\\beta}}-(1-e^{-\\frac{x-L}{\\beta}})=0 \\rightarrow ne^{-\\frac{x-L}{\\beta}} {{\\color{red}{-e^{-\\frac{x-L}{\\beta}}}}} -1 {{\\color{red}{+e^{-\\frac{x-L}{\\beta}}}}} = 0\\]\n\\[ne^{-\\frac{x-L}{\\beta}}-1=0 \\rightarrow e^{-\\frac{x-L}{\\beta}}=\\frac{1}{n}\\]\n\\[-\\frac{x-L}{\\beta}=ln(\\frac{1}{n}) \\rightarrow \\frac{x-L}{\\beta}=-ln(\\frac{1}{n})\\]\n\\[\\frac{x-L}{\\beta}=ln{((\\frac{1}{n})^{-1})}\\]\n\\[\\frac{x-L}{\\beta}=ln(n)\\]\n\\[x=L+\\beta ln(n)\\]\n\n\n\n\n\n\n\n\\[Generic \\ Shifted \\ Beta \\rightarrow F_X(x|\\beta) =\n\\begin{cases}\n1-e^{-\\frac{x-L}{\\beta}} & x \\geq L \\\\\n0 & x&lt;L\\\\\n\\end{cases}\\]\n\n\n\n\n\\[max(X_1,...,X_n)=T(X_1,...,X_n)\\stackrel{ind}{=}P(X_1\\le t)P(X_2\\le t)...P(X_n\\le t)=[F_X(t)]^n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Derivations of Expressions Used in Report</span>"
+    ]
+  },
+  {
+    "objectID": "simulation.html",
+    "href": "simulation.html",
+    "title": "3  Simulation",
+    "section": "",
+    "text": "3.1 Simulation Results\nTo validate the theoretical model, 10,000 samples of size \\(n = 57\\) were drawn from a shifted exponential distribution with shift \\(L = 84.0\\) and scale \\(\\hat{\\beta} = 6.8\\), and the maximum of each sample was recorded.\nThe theoretical threshold (mode of the maximum’s distribution) was found to be \\(L + \\hat{\\beta}\\ln(n) = 117.1\\), meaning that a team with an adjusted defensive rating at or below 117.1 can be considered a realistic national championship contender. The simulated mean and median of the maximum were 122.2 and 120.3, respectively, with a standard deviation of 10.9.\nThe gap between the theoretical mode (117.1) and the simulated mean (122.2) is expected — the distribution of the maximum is right-skewed, so the mean is pulled above the mode by the long upper tail. The mode remains the most appropriate summary statistic here because it represents the most likely maximum defensive rating among contenders, rather than the average, which is inflated by rare cases of deep tournament runs by teams with weaker defenses.\nThe simulation confirms that the shifted exponential model is a reasonable fit for this data: the theoretical PDF closely tracks the simulated histogram, and the simulated median of 120.3 sits near the mode, consistent with the moderate right skew expected from an order statistic of this form.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Simulation</span>"
+    ]
+  },
+  {
+    "objectID": "Summary.html",
+    "href": "Summary.html",
+    "title": "4  Summary",
+    "section": "",
+    "text": "4.1 Simulation Results\nTo validate the theoretical model, 10,000 samples of size \\(n = 57\\) were drawn from a shifted exponential distribution with shift \\(L = 84.0\\) and scale \\(\\hat{\\beta} = 6.8\\), and the maximum of each sample was recorded.\nThe theoretical threshold (mode of the maximum’s distribution) was found to be \\(L + \\hat{\\beta}\\ln(n) = 117.1\\), meaning that a team with an adjusted defensive rating at or below 117.1 can be considered a realistic national championship contender. The simulated mean and median of the maximum were 122.2 and 120.3, respectively, with a standard deviation of 10.9.\nThe gap between the theoretical mode (117.1) and the simulated mean (122.2) is expected — the distribution of the maximum is right-skewed, so the mean is pulled above the mode by the long upper tail. The mode remains the most appropriate summary statistic here because it represents the most likely maximum defensive rating among contenders, rather than the average, which is inflated by rare cases of deep tournament runs by teams with weaker defenses.\nThe simulation confirms that the shifted exponential model is a reasonable fit for this data: the theoretical PDF closely tracks the simulated histogram, and the simulated median of 120.3 sits near the mode, consistent with the moderate right skew expected from an order statistic of this form.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#population-and-sampling",
+    "href": "intro.html#population-and-sampling",
+    "title": "2  Introduction",
+    "section": "2.2 Population and Sampling",
+    "text": "2.2 Population and Sampling\nBecause the goal is to identify an optimal range of defensive ratings for teams that are competing for a championship, we will only be sampling from teams who classify as a “title contender”. For this group, the average ADR is 92.55, with a minimum of 84 and a maximum of 102.1.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#theoretical-cdf-and-pdf-distributions",
+    "href": "intro.html#theoretical-cdf-and-pdf-distributions",
+    "title": "2  Introduction",
+    "section": "2.4 Theoretical CDF and pdf Distributions",
+    "text": "2.4 Theoretical CDF and pdf Distributions\n\\[F_X(x|\\beta) = [1-e^{-\\frac{x-L}{\\beta}}]^n, x&gt;0\\]\n\\[f_{X_i}(x|\\beta)=\\frac{n}{\\beta}e^{-\\frac{x-L}{\\beta}}(1-e^{-\\frac{x-L}{\\beta}})^{n-1}, \\ \\ x&gt;0\\]\n\n\n\n\n\n\n\n\nFigure 2.1: Theoretical Distribution of the pdf",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "derivations.html#f_xxbeta-1-e-fracx-lbetan-x0",
+    "href": "derivations.html#f_xxbeta-1-e-fracx-lbetan-x0",
+    "title": "Appendix A — Derivations of Expressions Used in Report",
+    "section": "A.3 \\[F_X(x|\\beta) = [1-e^{-\\frac{x-L}{\\beta}}]^n, x>0\\]",
+    "text": "A.3 \\[F_X(x|\\beta) = [1-e^{-\\frac{x-L}{\\beta}}]^n, x&gt;0\\]\n\\[f_{X_i}(x|\\beta)=\\frac{d}{dx}F_X(x|\\beta)=\\frac{n}{\\beta}e^{-\\frac{x-L}{\\beta}}[1-e^{-\\frac{x-L}{\\beta}}]^{n-1}, \\ \\ x&gt;0\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Derivations of Expressions Used in Report</span>"
+    ]
+  }
+]
